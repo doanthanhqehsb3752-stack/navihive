@@ -1,24 +1,26 @@
 {
-  "name": "navihive-test",
-  "compatibility_date": "2025-01-01",
-  "main": "dist/navihive/index.js",
-  "assets": {
-    "directory": "dist/client",
-    "binding": "ASSETS"
-  },
-  "vars": {
-    // 认证配置
-    "AUTH_ENABLED": "true",
-    "AUTH_REQUIRED_FOR_READ": "false",
-    "AUTH_USERNAME": "admin",
-    "AUTH_PASSWORD": "$2a$10$Ad1Vu8l8RNdrMn5RPj0pjeLQHh3sTd.OyqjNKFrWTNT/cj1DzkwAi",
-    "AUTH_SECRET": "navihive-test-secret-2025"
-  },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "navihive-test-db",
-      "database_id": "86de3963-705e-4baf-b454-e485de8293eb"
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "navihive",
+    "main": "worker/index.ts",
+    "compatibility_date": "2025-04-05",
+    "assets": {
+        "not_found_handling": "single-page-application"
+    },
+    "observability": {
+        "enabled": true
+    },
+    // D1数据库绑定
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "navigation-db",
+            "database_id": "您的数据库ID"  // f9462e25-39b3-4ff9-8233-47628f798801
+        }
+    ],
+    "vars": {
+        "AUTH_ENABLED": "true",  // 是否启用认证
+        "AUTH_USERNAME": "admin",  // 管理员用户名
+        "AUTH_PASSWORD": "556677",  // 管理员密码 (请修改为安全密码)
+        "AUTH_SECRET": "55667788"  // JWT密钥 (请使用随机字符串)
     }
-  ]
 }
